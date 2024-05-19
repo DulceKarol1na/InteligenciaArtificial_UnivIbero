@@ -143,27 +143,26 @@ def encontrar_mejor_ruta(origen, destino):
                 distancia_total_actualizada = distancia_total + nueva_distancia
                 tiempo_total_actualizado = tiempo_total + nuevo_tiempo
 
-                # Si el vecino es el destino, mostrar la ruta encontrada junto con la distancia y el tiempo total
+                # Si el vecino es el destino, retornar la ruta encontrada junto con la distancia y el tiempo total
                 if vecino == destino:
                     return nueva_ruta, distancia_total_actualizada, tiempo_total_actualizado
 
                 # Encolar el vecino junto con la nueva ruta, distancia y tiempo actualizados
                 cola.append((vecino, nueva_ruta, distancia_total_actualizada, tiempo_total_actualizado))
 
-    # Si la cola se vacía y no se ha encontrado el destino
+    # Si la cola se vacía y no se ha encontrado el destino, retornar None e infinitos para distancia y tiempo
     return None, float('inf'), float('inf')
 
 # Fin del análisis para encontrar la ruta más corta
 
 # Ejemplo de uso
-origen = 'Barrio Jupiter'
-destino = 'Bogotá'
+origen = 'Pasto'
+destino = 'Cartagena'
 
 ruta, distancia, tiempo = encontrar_mejor_ruta(origen, destino)
-
 if ruta:
     print(f"La mejor ruta de {origen} a {destino} es: {' -> '.join(ruta)}")
-    print(f"Ditancia total: {distancia} km")
+    print(f"Distancia total: {distancia} km")
     print(f"Tiempo total: {tiempo} horas")
 else:
-    print(f"No hay ruta diponible de {origen} a {destino}")
+    print(f"No hay ruta disponible de {origen} a {destino}")
